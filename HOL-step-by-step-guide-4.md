@@ -35,9 +35,9 @@ Dec 2024
 
   - [Task 3: コンテナー イメージのビルド、プッシュ](#task-3-コンテナー-イメージのビルドプッシュ)
 
-  - [Task 4: Azure Container Apps へのイメージの展開](#task-4-azure-container-apps-へのイメージの展開)
+  - [Task 4: シークレットの登録](#task-4-シークレットの登録)
 
-  - [Task 5: シークレットの登録](#task-5-シークレットの登録)
+  - [Task 5: Azure Container Apps へのイメージの展開](#task-5-azure-container-apps-へのイメージの展開)
 
   - [Task 6: API の動作確認](#task-6-api-の動作確認)
 
@@ -314,11 +314,58 @@ Dec 2024
 
 <br />
 
-### Task 4: Azure Container Apps へのイメージの展開
+### Task 4: シークレットの登録
+
+- Azure AI Search の **設定** > **キー** を選択し、クエリ キーをコピー
+
+- Key Vault の **オブジェクト** > **シークレット** を選択し **＋ 生成/インポート** をクリック
+
+  <img src="./images/keyvault-secret-01.png" />
+
+- シークレットの作成
+
+  - **アップロード オプション**: 手動
+
+  - **名前**: 任意 (ApiKey など)
+
+  - **シークレット値**: コピーした Azure AI Search のクエリ キー
+
+    <img src="./images/keyvault-secret-02.png" />
+
+- **作成** をクリックし、シークレットを登録
+
+- Container Apps の **設定** > **シークレット** を選択し **＋ 追加** をクリック
+
+- シークレットの追加
+
+  - Container Apps シークレット
+
+    |キー|種類|値|
+    |---|---|---|
+    |searchserviceendpoint (任意)|Container Apps シークレット|Azure AI Search の URL|
+    |index (任意)|Container Apps シークレット|インデックス名|
+
+    <img src="./images/containerapps-secret-02.png" />
+
+  - Key Vault 参照
+
+    - **キー**: apikey (任意)
+
+    - **種類**: Key Vault 参照
+
+    - **Key Vault シークレット URL**: Key Vault に登録したシークレットのシークレット識別子
+
+    - **マネージド ID**: システム割り当て
+
+      <img src="./images/containerapps-secret-03.png" />
+
+- **追加** をクリックし、シークレットを登録
+
+  <img src="./images/containerapps-secret-04.png" />
 
 <br />
 
-### Task 5: シークレットの登録
+### Task 5: Azure Container Apps へのイメージの展開
 
 <br />
 

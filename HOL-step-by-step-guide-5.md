@@ -7,7 +7,7 @@ Dec 2024
 
 ### Contents
 
-- [Exercise 8: API Management を使用した API の公開](#exercise-8-api-management-を使用した-api-の公開)
+- [Exercise 8: API Management を使用した API の発行](#exercise-8-api-management-を使用した-api-の発行)
 
   - [Task 1: プライベート エンドポイントの作成](#task-1-プライベート-エンドポイントの作成)
 
@@ -19,7 +19,7 @@ Dec 2024
 
 <br />
 
-## Exercise 8: API Management を使用した API の公開
+## Exercise 8: API Management を使用した API の発行
 
 <img src="./images/Ex8.png" />
 
@@ -229,6 +229,72 @@ Dec 2024
 
 <br />
 
-### Task 4: API の公開
+### Task 4: API のインポートと発行
+
+- API Management の **APIs** > **API** を選択
+
+- **Create from Azure resource** > **Container App** をクリック
+
+  <img src="./images/publish-api-01.png" />
+
+- **Full** を選択し、必要な情報を入力
+
+  - **Container App**: **Browse** をクリックし、API を展開した Contaienr Apps を選択
+
+  - **API URL suffix**: api
+
+    <img src="./images/publish-api-02.png" />
+
+- **Create** をクリックし API をインポート
+
+- **APIs** > **製品** を選択し **＋ 追加** をクリック
+
+  - 製品の追加
+
+    - **表示名**: MCW APIs (任意)
+
+    - **ID**: mcw-apis (任意)
+
+    - **説明**: Search API service (任意)
+
+    - **発行済み**: オン
+
+    - **サブスクリプションを要求する**: オン
+
+      <img src="./images/publish-api-03.png" />
+
+- **作成** をクリックし、製品を追加
+
+- 追加した製品をクリック
+
+  <img src="./images/publish-api-04.png" />
+
+- **製品** > **API** を選択し **＋ 追加** をクリック、インポートした API を選択し **選択** をクリック
+
+  <img src="./images/publish-api-04.png" />
+
+- **製品** > **サブスクリプション** を選択し **＋ サブスクリプションの追加** をクリック
+
+  <img src="./images/publish-api-06.png" />
+
+- **名前**、**表示名** を入力し **作成** をクリック
+
+  <img src="./images/publish-api-07.png" />
+
+- 追加したサブスクリプションの **...** をクリックし **キーの表示/非表示** をクリック
+
+- API 応答のテストを行うために **主キー** をコピー
 
 <br />
+
+### 参考情報
+
+- [Azure API Management とは](https://learn.microsoft.com/ja-jp/azure/api-management/api-management-key-concepts)
+
+- [送信要求用の VNet との統合](https://learn.microsoft.com/ja-jp/azure/api-management/integrate-vnet-outbound)
+
+- [Container Apps Web API のインポート](https://learn.microsoft.com/ja-jp/azure/api-management/import-container-app-with-oas)
+
+- [最初の API のインポートと発行](https://learn.microsoft.com/ja-jp/azure/api-management/import-and-publish)
+
+- [製品を作成して発行する](https://learn.microsoft.com/ja-jp/azure/api-management/api-management-howto-add-products?tabs=azure-portal&pivots=interactive)
